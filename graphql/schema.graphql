@@ -1,0 +1,26 @@
+type InventoryItem {
+  id: ID!
+  sku: String!
+  title: String
+  condition: String
+  quantity: Int!
+  synced_at: DateTime
+}
+
+type InventoryItemPage {
+  data: [InventoryItem!]!
+}
+
+type SyncResult {
+  synced: Int!
+}
+
+type Query {
+  inventoryItems: [InventoryItem!]!
+    @field(resolver: "App\\GraphQL\\Queries\\InventoryItemsQuery")
+}
+
+type Mutation {
+  syncEbayInventory: SyncResult!
+    @field(resolver: "App\\GraphQL\\Mutations\\SyncEbayInventoryMutation")
+}

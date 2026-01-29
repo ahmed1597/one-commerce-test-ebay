@@ -1,0 +1,15 @@
+includes:
+  - vendor/nunomaduro/larastan/extension.neon
+
+parameters:
+  level: 7
+  paths:
+    - app
+    - routes
+    - tests
+
+  excludePaths:
+    - storage
+    - bootstrap/cache
+
+  treatPhpDocTypesAsCertain: false
