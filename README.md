@@ -16,7 +16,7 @@ This project is intentionally **focused and small** to demonstrate:
 *   Automated E2E testing
     
 
-✨ Features
+Features
 ----------
 
 *   eBay OAuth (Sandbox)

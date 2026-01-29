@@ -36,7 +36,6 @@ final class EbayInventoryApi implements EbayInventoryGateway
             $sku = (string) ($row['sku'] ?? '');
 
             if ($sku === '') {
-                // ignore malformed entries rather than crashing sync.
                 continue;
             }
 

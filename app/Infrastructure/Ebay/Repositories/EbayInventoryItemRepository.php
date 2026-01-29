@@ -21,11 +21,8 @@ final class EbayInventoryItemRepository
         $now = now();
 
         $payload = array_map(static function (InventoryItemDTO $dto) use ($conn, $now): array {
-            // SKU MUST be a string (sometimes you may accidentally pass array/object)
             $sku = is_string($dto->sku) ? $dto->sku : (string) ($dto->sku ?? '');
 
-            // IMPORTANT: Eloquent casts do NOT apply to bulk upsert payload
-            // So we must JSON encode raw ourselves
             $raw = $dto->raw;
             if (is_array($raw)) {
                 $raw = json_encode($raw, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
